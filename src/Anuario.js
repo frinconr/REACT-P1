@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemAnuario from './ItemAnuario'
+import Grid from '@material-ui/core/Grid';
 
 class Anuario extends React.Component {
     constructor(props) {
@@ -13,14 +14,20 @@ class Anuario extends React.Component {
 
         for (var i = 0; i < this.state.cantidadItems; i++) {
             itemsAnuario.push(
-                <ItemAnuario/>
+                <Grid key={i} item>
+                    <ItemAnuario/>
+                </Grid>
             )
          }
 
         return (
-        <div>
-            {itemsAnuario}
-        </div>
+            <Grid container spacing="2">
+                <Grid item xs={12}>
+                    <Grid container justify="center" spacing="2">
+                        {itemsAnuario}
+                    </Grid>
+                </Grid>
+            </Grid>
         );
     }
 }

@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Anuario cantidadItems="20" />
+        <Anuario cantidadItems="4" />
       </header>
     </div>
   );

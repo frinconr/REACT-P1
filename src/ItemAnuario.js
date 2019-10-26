@@ -1,4 +1,6 @@
 import React from 'react';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 
 class ItemAnuario extends React.Component {
@@ -28,11 +30,13 @@ class ItemAnuario extends React.Component {
     }
     render() {
         return (
-        <div>
-            <img src={this.state.persona.foto} alt="foto-persona"/>
-            <p>{this.state.persona.nombre_completo}</p>
-            <p>{this.state.persona.email}</p>
-        </div>
+        <Card>
+            <CardContent>
+                <img src={this.state.persona.foto} alt="foto-persona"/>
+                <p>{this.state.persona.nombre_completo}</p>
+                <p>{this.state.persona.email}</p>
+            </CardContent>
+        </Card>
         );
     }
 }
