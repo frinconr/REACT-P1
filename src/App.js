@@ -1,13 +1,14 @@
 import React from 'react';
-import './App.css';
+import './App.css'
 import Anuario from './Anuario';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Anuario cantidadItems="4" />
+        <h1>Anuario</h1>
       </header>
+        <Anuario cantidadItems="8" />
     </div>
   );
 }

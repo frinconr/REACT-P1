@@ -14,19 +14,19 @@ class Anuario extends React.Component {
 
         for (var i = 0; i < this.state.cantidadItems; i++) {
             itemsAnuario.push(
-                <Grid key={i} item>
+                <Grid key={i} item xs justify="center">
                     <ItemAnuario/>
                 </Grid>
             )
          }
 
         return (
-            <Grid container spacing="2">
-                <Grid item xs={12}>
-                    <Grid container justify="center" spacing="2">
+            <Grid container spacing={2}>
+                {/* <Grid item xs> */}
+                    {/* <Grid container justify="center" spacing="2"> */}
                         {itemsAnuario}
-                    </Grid>
-                </Grid>
+                    {/* </Grid> */}
+                {/* </Grid> */}
             </Grid>
         );
     }
