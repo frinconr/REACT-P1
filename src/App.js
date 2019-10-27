@@ -8,7 +8,9 @@ function App() {
       <header className="App-header">
         <h1>Anuario</h1>
       </header>
-        <Anuario cantidadItems="8" />
+        <div id="anuario">
+          <Anuario cantidadItems="8" />
+        </div>       
     </div>
   );
 }

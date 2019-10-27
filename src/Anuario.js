@@ -1,35 +1,55 @@
 import React from 'react';
 import ItemAnuario from './ItemAnuario'
 import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+
 
 class Anuario extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             cantidadItems: this.props.cantidadItems,
+            items: []
         };
+
+        this.cargarPagina = this.cargarPagina.bind(this);
     }
-    render() {
+
+    componentDidMount() {
+        this.cargarPagina();
+    }
+
+    cargarPagina() {
         const itemsAnuario = [];
 
         for (var i = 0; i < this.state.cantidadItems; i++) {
             itemsAnuario.push(
-                <Grid key={i} item xs justify="center">
+                <Grid key={this.state.items.length} item xs>
                     <ItemAnuario/>
                 </Grid>
             )
          }
 
+         this.setState({
+             items: this.state.items.concat(itemsAnuario)
+         });
+    }
+
+    render() {
         return (
-            <Grid container spacing={2}>
-                {/* <Grid item xs> */}
-                    {/* <Grid container justify="center" spacing="2"> */}
-                        {itemsAnuario}
-                    {/* </Grid> */}
-                {/* </Grid> */}
-            </Grid>
+            <div>
+                <Grid container spacing={2}>
+                    {this.state.items}
+                </Grid>
+
+                <IconButton aria-label="delete" size="large" onClick={this.cargarPagina}>
+                  <ArrowDownwardIcon fontSize="inherit" />
+                </IconButton>
+            </div>
         );
     }
 }
+
 
 export default Anuario;
