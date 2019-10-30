@@ -9,6 +9,7 @@ class Anuario extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            totalItems: 0,
             cantidadItems: this.props.cantidadItems,
             items: []
         };
@@ -22,17 +23,21 @@ class Anuario extends React.Component {
 
     cargarPagina() {
         const itemsAnuario = [];
+        let totalItems = this.state.totalItems; 
 
         for (var i = 0; i < this.state.cantidadItems; i++) {
+            
             itemsAnuario.push(
-                <Grid key={this.state.items.length} item xs>
+                <Grid key={totalItems} item xs>
                     <ItemAnuario/>
                 </Grid>
             )
+            totalItems++;
          }
 
          this.setState({
-             items: this.state.items.concat(itemsAnuario)
+             items: this.state.items.concat(itemsAnuario),
+             totalItems: totalItems
          });
     }
 
@@ -43,7 +48,7 @@ class Anuario extends React.Component {
                     {this.state.items}
                 </Grid>
 
-                <IconButton aria-label="delete" size="large" onClick={this.cargarPagina}>
+                <IconButton aria-label="delete" size="medium" onClick={this.cargarPagina}>
                   <ArrowDownwardIcon fontSize="inherit" />
                 </IconButton>
             </div>
